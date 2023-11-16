@@ -61,6 +61,11 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
+        $user = Auth::user();
+        if ($todo->user_id !== $user->id) {
+            abort(404);
+        }
+
         return response()->json($todo);
     }
 
