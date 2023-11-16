@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  web:
+    image: "nginx:stable-alpine"
+    volumes:
+      - ./:/usr/share/nginx/html
+      - ./dockerfiles/nginx/etc/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    networks:
+      - todo_app
+
+  php:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/php/Dockerfile
+    volumes:
+      - ./:/usr/share/nginx/html
+    networks:
+      - todo_app
+
+  db:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    volumes:
+      - data:/var/lib/mysql
+    networks:
+      - todo_app
+    environment:
+      MYSQL_DATABASE: todo_app
+      MYSQL_ROOT_PASSWORD: 123123
+
+networks:
+  todo_app:
+
+volumes:
+  data:
