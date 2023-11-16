@@ -47,7 +47,7 @@
         </div>
 
         <!-- Pagination -->
-        <div class="mt-10 text-center">
+        <div v-if="pagination.total > 0" class="mt-10 text-center">
             <nav aria-label="Page navigation example">
                 <ul class="inline-flex -space-x-px">
                     <li v-for="link in pagination.links" :key="link.label">
