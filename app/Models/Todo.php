@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Database\Factories\TodoFactory;
 
 class Todo extends Model
 {
@@ -18,6 +20,16 @@ class Todo extends Model
     ];
 
     protected $guarded = [];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return Factory
+     */
+    protected static function newFactory(): Factory
+    {
+        return TodoFactory::new();
+    }
 
     /**
      * Get the user that owns the todo

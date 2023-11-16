@@ -53,7 +53,7 @@ class TodoController extends Controller
             ->todos()
             ->orderBy('id', 'desc')
             ->paginate(5)
-            ->withPath('/api/todos'));
+            ->withPath('/api/todos'), 201);
     }
 
     /**
