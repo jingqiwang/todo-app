@@ -42,12 +42,12 @@ class TodoTest extends TestCase
     /**
      * Test todos show api
      */
-    public function test_todos_show_api()
+    public function test_todos_show_json_data()
     {
         $user = User::factory()->create();
         $todo = Todo::factory()->create(['user_id' => $user->id]);
 
-        $response = $this->actingAs($user)->getJson("/api/todos/{$todo->id}");
+        $response = $this->actingAs($user)->getJson("/todos/{$todo->id}");
         $response->assertOk();
 
         $response->assertJson(['id' => $todo->id]);
