@@ -15,15 +15,15 @@ Use Vitejs for bundling frontend assets.
 
 3. **Install Composer dependencies:**
     ```bash
-    docker-compose run --rm php composer install
+    docker compose run --rm php composer install
 
 4. **Install Node.js dependencies**
     ```bash
-    docker-compose run --rm php pnpm install
+    docker compose run --rm php pnpm install
 
 5. **Run pnpm build**
     ```bash
-    docker-compose run --rm php pnpm build
+    docker compose run --rm php pnpm build
 
 6. **Start Docker containers**
     ```bash
@@ -31,7 +31,7 @@ Use Vitejs for bundling frontend assets.
 
 7. **Database Setup**
     ```bash
-    docker-compose exec php php artisan migrate
+    docker compose exec php php artisan migrate
 
 ### Code Testing
 ```bash
